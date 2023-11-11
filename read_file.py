@@ -34,16 +34,23 @@ def getLC_files():
 
 def getData(file):
     resList = list()
+    unique_prompts = set()
     with open(file, "r") as f:
         data_dict = json.loads(f.read().encode('UTF8'))
         allMessages = data_dict["Sources"][:]
         for i in range(len(allMessages)):
             try:
-                if (allMessages[i]["ChatgptSharing"][0]["NumberOfPrompts"] == 2):
+                if (allMessages[i]["ChatgptSharing"][0]["NumberOfPrompts"] == 2):           #make sure its a single prompt message
                     if (len(allMessages[i]["ChatgptSharing"][0]["Conversations"]) != 0):
-                        resList.append([allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["Prompt"], allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["Answer"]])   
+                        prompt = allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["Prompt"] 
+                        response = allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["Answer"]
+                        if "ListOfCode" in allMessages[i]["ChatgptSharing"][0]["Conversations"][0] and len(allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["ListOfCode"]) != 0:
+                            ListofCode = allMessages[i]["ChatgptSharing"][0]["Conversations"][0]["ListOfCode"]          #add any code blocks
+                            for j in ListofCode:
+                                response += "\n" + j["Content"]
+                        if prompt+response not in unique_prompts:       #check for duplicates
+                            unique_prompts.add(prompt+response)
+                            resList.append([prompt, response])
             except KeyError:
                 continue
     return resList
-
-
