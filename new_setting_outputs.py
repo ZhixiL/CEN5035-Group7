@@ -1,6 +1,7 @@
 from openai import OpenAI
 import os
 from read_file import getData
+from helper import writeToCSV
 apikey = "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"
 
 def get_response_setting(input):
@@ -15,9 +16,11 @@ def get_response_setting(input):
             }
         ]
     )
-    return resp.choices[0].message.content.replace('```', '').replace('python','').strip()
+    return resp.choices[0].message.content.strip()
 
 def gen_new_response(path, start, end):
+
+    csv_list = []
     res_list = getData(path)
     setting = "If you have to write code, write it as efficiently as you can. If your response does not involve coding, keep your answer precise and well thought out."
 
@@ -28,8 +31,9 @@ def gen_new_response(path, start, end):
         new_res = get_response_setting(new_prompt)
         current_element.append(new_res)
 
-        #write to csv here
+        csv_list.append(current_element)
+    writeToCSV(csv_list, "./output1.csv")
 
 if __name__ == "__main__":
     path = "./given_datasets/20231012_230826_commit_sharings.json"
-    gen_new_response(path, 0, 70)
+    gen_new_response(path, 0, 80)
