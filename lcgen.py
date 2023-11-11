@@ -27,18 +27,18 @@ def getGPTCode(input, withSetting):
 if __name__ == "__main__":
     # run arbitrary amount of code generation.
     apikey = input("What is your API Key: ")
-    start, end, ctr = int(input("Start reading from: ")), int(input("End reading at: ")), 1
+    start, end, ctr = int(input("Start reading from: ")), int(input("end reading at: ")), 0
     cur_path = os.getcwd()
     data = getLC_files()
     for key in data.keys():
+        ctr += 1
         if ctr < start:
             continue
         if ctr > end:
             break
-        ctr += 1
         f = open(f"{cur_path}/LC_Gen_Codes/{key}_setting.py", "w")
         f.write(getGPTCode(data[key], True))
         f.close()   
         f = open(f"{cur_path}/LC_Gen_Codes/{key}_no_setting.py", "w")
         f.write(getGPTCode(data[key], False))
-        f.close()   
+        f.close()
