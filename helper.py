@@ -1,5 +1,8 @@
 import pandas as pd
-def writeToCSV(responseList, fileName):
-    headers = ["Prompt", "Response", "newPrompt", "newResponse"]
+import csv
+def writeToCSV(responseList, fileName, headers):
     df = pd.DataFrame(responseList, columns=headers)
     df.to_csv(fileName, index=False)  
+
+def readCSV(fileName):
+    return list(csv.reader(open(fileName)))
