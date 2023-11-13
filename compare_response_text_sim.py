@@ -55,7 +55,13 @@ if __name__ == "__main__":
         singleOutput.append(jaccard_similarity(out[1], out[3]))
         singleOutput.append(cos_similarity(out[1], out[3]))
         singleOutput.append(euclidean_distance(out[1], out[3]))
-        print(singleOutput)
+        similarityResult.append(singleOutput)
+
+    for out in outputs2:
+        singleOutput = [out[0]]
+        singleOutput.append(jaccard_similarity(out[1], out[3]))
+        singleOutput.append(cos_similarity(out[1], out[3]))
+        singleOutput.append(euclidean_distance(out[1], out[3]))
         similarityResult.append(singleOutput)
     
     writeToCSV(similarityResult, "./simi_output.csv", h)
