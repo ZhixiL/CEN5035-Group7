@@ -1,12 +1,9 @@
-c++
-#include <vector>
-#include <string>
-
+cpp
 class Solution {
 public:
-    bool isAcronym(std::vector<std::string>& words, std::string s) {
-        std::string acronym = "";
-        for (std::string word : words) {
+    bool isAcronym(vector<string>& words, string s) {
+        string acronym = "";
+        for (string word : words) {
             acronym += word[0];
         }
         return acronym == s;

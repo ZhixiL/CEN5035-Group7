@@ -1,35 +1,30 @@
-Here is the converted code in Java:
+Here is the converted code snippet in C++:
 
-java
-import java.util.List;
+cpp
+#include <vector>
+#include <algorithm>
 
 class Solution {
-    public int maxSum(List<Integer> nums) {
-        int maxSum = -1;
-
+public:
+    int maxSum(std::vector<int>& nums) {
+        int max_sum = -1;
+        
         // Loop through each pair of numbers
         for (int i = 0; i < nums.size(); i++) {
             for (int j = i + 1; j < nums.size(); j++) {
                 // Find the maximum digit in both numbers
-                int maxDigit = Integer.MIN_VALUE;
-                String num1 = String.valueOf(nums.get(i));
-                String num2 = String.valueOf(nums.get(j));
-
-                for (char digit : num1.toCharArray()) {
-                    maxDigit = Math.max(maxDigit, digit - '0');
-                }
-                for (char digit : num2.toCharArray()) {
-                    maxDigit = Math.max(maxDigit, digit - '0');
-                }
-
-                if (maxDigit == Integer.parseInt(String.valueOf(num1.charAt(0))) || maxDigit == Integer.parseInt(String.valueOf(num2.charAt(0)))) {
-                    // Calculate the sum and update maxSum if necessary
-                    int pairSum = nums.get(i) + nums.get(j);
-                    maxSum = Math.max(maxSum, pairSum);
+                int max_digit = *std::max_element(std::begin(std::to_string(nums[i])), std::end(std::to_string(nums[i])));
+                if (max_digit == *std::max_element(std::begin(std::to_string(nums[j])), std::end(std::to_string(nums[j])))) {
+                    // Calculate the sum and update max_sum if necessary
+                    int pair_sum = nums[i] + nums[j];
+                    max_sum = std::max(max_sum, pair_sum);
                 }
             }
         }
-
-        return maxSum;
+        
+        return max_sum;
     }
-}
+};
+
+
+Note: C++ doesn't have a built-in max function to find the maximum digit in a number. Therefore, we need to convert each number to a string and then find the maximum element using the std::max_element from the algorithm library.

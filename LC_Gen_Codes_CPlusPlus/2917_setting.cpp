@@ -1,3 +1,6 @@
+Here's the provided Python code converted to C++:
+
+cpp
 class Solution {
 public:
     int findKOr(vector<int>& nums, int k) {
@@ -7,7 +10,7 @@ public:
             int count = 0;
             for (int num : nums) {
                 if ((num >> i) & 1) {
-                    count += 1;
+                    count++;
                 }
             }
             if (count >= k) {

@@ -1,7 +1,8 @@
+cpp
 class Solution {
 public:
     vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
-        vector<int> longest_subsequence;
+        vector<string> longest_subsequence;
         for (int i = 0; i < n; i++) {
             vector<int> subsequence;
             subsequence.push_back(i);
@@ -11,13 +12,12 @@ public:
                 }
             }
             if (subsequence.size() > longest_subsequence.size()) {
-                longest_subsequence = subsequence;
+                longest_subsequence.clear();
+                for (int k : subsequence) {
+                    longest_subsequence.push_back(words[k]);
+                }
             }
         }
-        vector<string> result;
-        for (int i : longest_subsequence) {
-            result.push_back(words[i]);
-        }
-        return result;
+        return longest_subsequence;
     }
 };

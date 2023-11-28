@@ -1,31 +1,32 @@
 class Solution {
-    public int countSymmetricIntegers(int low, int high) {
+public:
+    int countSymmetricIntegers(int low, int high) {
         int count = 0;
         
         for (int i = low; i <= high; i++) {
-            String numStr = Integer.toString(i);
+            string num_str = to_string(i);
             
-            if (numStr.length() % 2 != 0) {
+            if (num_str.length() % 2 != 0) {
                 continue;
             }
             
-            int n = numStr.length() / 2;
+            int n = num_str.length() / 2;
             
-            if (sumOfDigits(numStr, 0, n) == sumOfDigits(numStr, n)) {
+            int first_sum = 0;
+            for (int j = 0; j < n; j++) {
+                first_sum += num_str[j] - '0';
+            }
+            
+            int second_sum = 0;
+            for (int j = n; j < num_str.length(); j++) {
+                second_sum += num_str[j] - '0';
+            }
+            
+            if (first_sum == second_sum) {
                 count++;
             }
         }
         
         return count;
     }
-    
-    private int sumOfDigits(String numStr, int startIndex, int endIndex) {
-        int sum = 0;
-        
-        for (int i = startIndex; i < endIndex; i++) {
-            sum += Character.getNumericValue(numStr.charAt(i));
-        }
-        
-        return sum;
-    }
-}
+};

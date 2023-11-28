@@ -1,6 +1,3 @@
-Here is the provided Python code converted to C++:
-
-cpp
 class Solution {
 public:
     int maxDivScore(vector<int>& nums, vector<int>& divisors) {
@@ -8,7 +5,7 @@ public:
         for (int num : nums) {
             for (int i = 0; i < divisors.size(); i++) {
                 if (num % divisors[i] == 0) {
-                    score[i]++; // increment the score if num is divisible by divisor
+                    score[i] += 1; // increment the score if num is divisible by divisor
                 }
             }
         }
@@ -22,6 +19,3 @@ public:
         return *min_element(max_score_divisors.begin(), max_score_divisors.end()); // return the minimum of the divisors with maximum score
     }
 };
-
-
-Note: You may need to include the `<vector>` and `<algorithm>` headers for the code to work properly.

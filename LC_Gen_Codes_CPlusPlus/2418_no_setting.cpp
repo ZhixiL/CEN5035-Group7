@@ -1,27 +1,25 @@
+cpp
 class Solution {
-    public List<String> sortPeople(List<String> names, List<Integer> heights) {
-        // Create a list of tuples (name, height)
-        List<Pair<String, Integer>> people = new ArrayList<>();
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        vector<pair<string, int>> people;
         
+        // Create a vector of pairs (name, height)
         for (int i = 0; i < names.size(); i++) {
-            Pair<String, Integer> person = new Pair<>(names.get(i), heights.get(i));
-            people.add(person);
+            people.push_back(make_pair(names[i], heights[i]));
         }
         
-        // Sort the list of tuples by height in descending order
-        Collections.sort(people, new Comparator<Pair<String, Integer>>() {
-            @Override
-            public int compare(Pair<String, Integer> p1, Pair<String, Integer> p2) {
-                return p2.getValue().compareTo(p1.getValue());
-            }
+        // Sort the vector of pairs by height in descending order
+        sort(people.begin(), people.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+            return a.second > b.second;
         });
         
-        // Extract the names from the sorted list of tuples
-        List<String> sortedNames = new ArrayList<>();
-        for (Pair<String, Integer> person : people) {
-            sortedNames.add(person.getKey());
+        // Extract the names from the sorted vector of pairs
+        vector<string> sorted_names;
+        for (const auto& pair : people) {
+            sorted_names.push_back(pair.first);
         }
         
-        return sortedNames;
+        return sorted_names;
     }
-}
+};

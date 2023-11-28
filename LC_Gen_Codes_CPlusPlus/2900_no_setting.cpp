@@ -1,18 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, List<String> words, List<Integer> groups) {
-        List<String> subsequence = new ArrayList<>();
-        Integer prev_group = null;
+public:
+    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+        vector<string> subsequence;
+        int prev_group = -1;
         
-        for (int i = 0; i < n; i++) {
-            if (prev_group == null || !groups.get(i).equals(prev_group)) {
-                subsequence.add(words.get(i));
-                prev_group = groups.get(i);
+        for(int i = 0; i < n; i++){
+            if(prev_group == -1 || groups[i] != prev_group){
+                subsequence.push_back(words[i]);
+                prev_group = groups[i];
             }
         }
         
         return subsequence;
     }
-}
+};

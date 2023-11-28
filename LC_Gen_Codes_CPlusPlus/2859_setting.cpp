@@ -2,7 +2,10 @@ cpp
 class Solution {
 public:
     int sumIndicesWithKSetBits(vector<int>& nums, int k) {
+        // Initialize the sum variable
         int total_sum = 0;
+        
+        // Iterate through each number in the nums vector
         for (int i = 0; i < nums.size(); i++) {
             // Convert the index i to its binary representation and count the set bits
             string binary = bitset<32>(i).to_string();
@@ -14,6 +17,7 @@ public:
             }
         }
         
+        // Return the total sum
         return total_sum;
     }
 };

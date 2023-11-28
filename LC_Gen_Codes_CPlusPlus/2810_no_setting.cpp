@@ -1,17 +1,26 @@
+c++
+#include <string>
+#include <stack>
+
 class Solution {
-    public String finalString(String s) {
-        StringBuilder result = new StringBuilder();
-        Stack<Character> stack = new Stack<>();
-        for (char c : s.toCharArray()) {
+public:
+    std::string finalString(std::string s) {
+        std::string result = "";
+        std::stack<char> stack;
+        for (char c : s) {
             if (c == 'i') {
-                Collections.reverse(stack);
+                while (!stack.empty()) {
+                    result += stack.top();
+                    stack.pop();
+                }
             } else {
                 stack.push(c);
             }
         }
-        while (!stack.isEmpty()) {
-            result.append(stack.pop());
+        while (!stack.empty()) {
+            result += stack.top();
+            stack.pop();
         }
-        return result.toString();
+        return result;
     }
-}
+};

@@ -1,16 +1,16 @@
+c++
 class Solution {
-    public boolean isGood(List<Integer> nums) {
-        int n = Collections.max(nums); // get the maximum element in the list
-        List<Integer> base = new ArrayList<>();
-        
-        for (int i = 1; i < n; i++) {
-            base.add(i);
+public:
+    bool isGood(vector<int>& nums) {
+        int n = *max_element(nums.begin(), nums.end()); // get the maximum element in the vector
+        vector<int> base(n);
+        for (int i = 0; i < n; i++) {
+            base[i] = i + 1;
         }
-        base.add(n);
-        base.add(n);
+        base.push_back(n);
         
-        Collections.sort(nums); // sort the nums list
+        sort(nums.begin(), nums.end()); // sort the nums vector
         
-        return nums.equals(base); // check if nums is equal to base list
+        return nums == base; // check if nums is equal to base vector
     }
-}
+};

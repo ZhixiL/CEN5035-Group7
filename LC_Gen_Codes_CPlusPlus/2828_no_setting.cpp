@@ -1,9 +1,10 @@
 class Solution {
-    public boolean isAcronym(List<String> words, String s) {
-        StringBuilder acronym = new StringBuilder();
-        for (String word : words) {
-            acronym.append(word.charAt(0));
+public:
+    bool isAcronym(vector<string>& words, string s) {
+        string acronym = "";
+        for (string word : words) {
+            acronym += word[0];
         }
-        return acronym.toString().equals(s);
+        return acronym == s;
     }
-}
+};

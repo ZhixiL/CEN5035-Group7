@@ -1,3 +1,5 @@
+Here is the C++ implementation of the given code:
+
 cpp
 #include <iostream>
 
@@ -16,8 +18,11 @@ public:
 
 int main() {
     Solution solution;
-    std::cout << solution.sumOfMultiples(7) << std::endl;  // Output: 21
-    std::cout << solution.sumOfMultiples(10) << std::endl;  // Output: 40
-    std::cout << solution.sumOfMultiples(9) << std::endl;  // Output: 30
+    std::cout << solution.sumOfMultiples(7) << std::endl; // Output: 21
+    std::cout << solution.sumOfMultiples(10) << std::endl; // Output: 40
+    std::cout << solution.sumOfMultiples(9) << std::endl; // Output: 30
     return 0;
 }
+
+
+Please note that you may need to include additional header files depending on the specific requirements of your C++ environment.

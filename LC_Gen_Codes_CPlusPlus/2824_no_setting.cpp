@@ -1,14 +1,15 @@
-java
-import java.util.List;
+Here is the implementation of the `countPairs` function in C++:
+
 
 class Solution {
-    public int countPairs(List<Integer> nums, int target) {
+public:
+    int countPairs(vector<int>& nums, int target) {
         int n = nums.size();
         int count = 0;
         
         for (int i = 0; i < n; i++) {
             for (int j = i+1; j < n; j++) {
-                if (nums.get(i) + nums.get(j) < target) {
+                if (nums[i] + nums[j] < target) {
                     count++;
                 }
             }
@@ -16,4 +17,4 @@ class Solution {
         
         return count;
     }
-}
+};
