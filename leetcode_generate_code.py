@@ -1,5 +1,5 @@
 # Leetcode Generation Code
-from read_file import getLC_files
+from RQ1_helper import getLC_files
 from openai import OpenAI
 import os
 apikey = "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"

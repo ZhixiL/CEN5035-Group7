@@ -1,6 +1,15 @@
+import pandas as pd
+import csv
 import os
 import itertools as it
 import json
+
+def writeToCSV(responseList, fileName, headers):
+    df = pd.DataFrame(responseList, columns=headers)
+    df.to_csv(fileName, index=False)  
+
+def readCSV(fileName):
+    return list(csv.reader(open(fileName,encoding='UTF-8')))[1:]
 
 def getLC_files():
     path = "./CustomInputData"
