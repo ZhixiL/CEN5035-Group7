@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import numpy as np
 from scipy.spatial import distance
-from helper import readCSV, writeToCSV
+from RQ1_helper import readCSV, writeToCSV
 from openai import OpenAI
 # Jaccard index to get similarity between texts
 def jaccard_similarity(text1, text2):
