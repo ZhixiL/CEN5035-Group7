@@ -28,7 +28,7 @@ RQ1_similarity_output.csv - This CSV file contains similarity outputs generated 
 
 RQ1_3gen_leetcode_code.py - this is the code that generated 2*54 codes from the leetcode description with/without settings through ChatGPT API.
 
-RQ1_ChatGPT_Scores.csv - This file consist of outputs that we manually gathered from LeetCode through running the code generated for each of the LeetCode question we selected.
+RQ1_ChatGPT_Scores.csv - This is the RQ1 output comparison score for provided dataset.
 
 RQ2_code_gen.py - This is the code used to generate two sets of code 2*20 based on the successful default code from RQ1 with the two VS.
 
