@@ -30,6 +30,8 @@ RQ1_3gen_leetcode_code.py - this is the code that generated 2*54 codes from the 
 
 RQ1_ChatGPT_Scores.csv - This is the RQ1 output comparison score for provided dataset.
 
+RQ1_LeetCode_Stat.csv - Contains results for the original python version of the 54 leetcode problems. 
+
 RQ2_code_gen.py - This is the code used to generate two sets of code 2*20 based on the successful default code from RQ1 with the two VS.
 
 RQ2_VS1_VS2_Stat.csv - this is the data we gathered from manually running generated code for RQ2 on LeetCode.
@@ -40,4 +42,4 @@ RQ3_Java_Stat.csv - Contains the results for JAVA version of the leetcode proble
 
 RQ3_CPP_Stat.csv - Contains the results for  CPP version of the leetcode problems for RQ3
 
-SoftwareProjectDataSheet.csv - Contains results for the original python version of the 54 leetcode problems. 
+
